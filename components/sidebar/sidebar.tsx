@@ -1,10 +1,30 @@
+"use client";
 import React from 'react'
 import Image from "next/image";
+import { useState } from 'react';
 
 export default function page() {
+
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-  <div className="flex h-screen " >
-        <aside className="w-64 p-6 h-screen bg-[#09334B] flex flex-col justify-between">
+  <div className="flex h-screen md:flex " >
+    {/* Mobile Hamburger Menu */}
+      <div className="md:hidden p-3">
+        <button
+          className="text-3xl focus:outline-none"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          &#9776; {/* Hamburger Icon */}
+        </button>
+
+
+    <aside
+     className={`bg-blue-700 w-64 h-screen text-white p-6 space-y-6 ${
+      isOpen ? "block" : "hidden"
+     } md:block`}
+     style={{ backgroundColor: '#09334B' }}  
+        >
     <div>
       <div className="text-white font-bold text-2xl mb-8">Guppa</div>
       <div className="text-gray-400 text-sm mb-6">MENU</div>
@@ -51,6 +71,7 @@ export default function page() {
     </div>
     </div>
   </aside>
+  </div>
   </div>
   //  <>
   //      <div className="flex min-h-screen">
