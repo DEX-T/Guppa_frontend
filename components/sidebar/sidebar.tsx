@@ -3,12 +3,12 @@ import React from 'react'
 import Image from "next/image";
 import { useState } from 'react';
 
-export default function page() {
+export default function sidebar() {
 
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-  <div className="flex h-screen md:flex " >
+  <div className="flex h-screen" >
     {/* Mobile Hamburger Menu */}
       <div className="md:hidden p-3">
         <button
@@ -18,12 +18,14 @@ export default function page() {
           &#9776; {/* Hamburger Icon */}
         </button>
 
+    </div>    
 
     <aside
      className={`bg-blue-700 w-64 h-screen text-white p-6 space-y-6 ${
       isOpen ? "block" : "hidden"
      } md:block`}
-     style={{ backgroundColor: '#09334B' }}  
+     style={{ backgroundColor: '#09334B' }} 
+   
         >
     <div>
       <div className="text-white font-bold text-2xl mb-8">Guppa</div>
@@ -72,39 +74,6 @@ export default function page() {
     </div>
   </aside>
   </div>
-  </div>
-  //  <>
-  //      <div className="flex min-h-screen">
-  //     <aside className="bg-[#0a3a5a] text-white w-64 p-6 flex flex-col justify-between">
-  //       <div>
-  //         <div className="mb-8">
-  //           <h1 className="text-2xl font-bold">Guppa</h1>
-  //         </div>
-  //         <div className="text-gray-400 text-sm mb-6">MENU</div>
-  //         <nav>
-  //           <ul className="space-y-6">
-  //             <li><a href="#" className="flex items-center text-gray-400 hover:text-white">Dashboard</a></li>
-  //             <li><a href="#" className="flex items-center text-gray-400 hover:text-white">Job Posts</a></li>
-  //             <li><a href="#" className="flex items-center text-gray-400 hover:text-white">Contracts</a></li>
-  //             <li><a href="#" className="flex items-center text-gray-400 hover:text-white">Messages</a></li>
-  //             <li><a href="#" className="flex items-center text-gray-400 hover:text-white">Payments</a></li>
-  //             <li><a href="#" className="flex items-center text-gray-400 hover:text-white">Support Ticket</a></li>
-  //           </ul>
-  //         </nav>
-  //       </div>
-
-  //       {/* Help Card */}
-  //       <div className="mt-8 text-center rounded-lg p-4  relative" style={{ backgroundColor: '#195273' }}>
-  //         <h2 className="text-lg">Need a Professional Help on Tasks?</h2>
-  //         <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-full">Post a Job</button>
-  //         <img src="/sidebar_image.png" alt="Advert" className="mt-6 mx-auto max-w-full" />
-  //       </div>
-  //     </aside>
-     
-  //   </div>   
-  //  </>
-
-   
   
 
   )
