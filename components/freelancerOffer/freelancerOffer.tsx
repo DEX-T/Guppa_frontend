@@ -8,11 +8,12 @@ export default function freelancerOffer() {
   const [startDate, setStartDate] = useState('');
   const [jobType, setJobType] = useState('');
   const [maxBudget, setMaxBudget] = useState('');
+  const [users, setUsers] = useState('');
 
   const handleSubmit = (e:any) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log({ startDate, jobType, maxBudget });
+    console.log({ startDate, users, jobType, maxBudget });
   };
   return (
     <div>
@@ -43,9 +44,9 @@ export default function freelancerOffer() {
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
     
-            {/* Job Date */}
+            {/* row  Job Date & Users to Offer Contracts */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="mb-6">
+              <div className="mb-6">
               <label className="block text-gray-700 font-semibold mb-2">
                 Start Date <span className="text-blue-500">ℹ️</span>
               </label>
@@ -60,7 +61,26 @@ export default function freelancerOffer() {
                 placeholder="Date"
               />
             </div>
+              <div className="mb-6">
+              <label className="block text-gray-700 font-semibold mb-2">
+              Select User <span className="text-blue-500">ℹ️</span>
+              </label>
+              <p className="text-gray-400 text-sm mb-2">
+              Users to Offer Contracts
+              </p>
+              <select
+                value={users}
+                onChange={(e) => setUsers(e.target.value)}
+                className="w-full border border-gray-300 p-3 rounded-lg"
+              >
+              <option>User1</option>
+              <option>User2</option>
+              <option>User3</option>
+              <option>User4</option>
+              <option>User5</option>
+            </select>
             </div>
+           </div>
            
     
             {/* Row with Job Type and Maximum Budget */}
