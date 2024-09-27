@@ -5,8 +5,8 @@ import { Inter } from "next/font/google";
 import AdminSidebar from "@/components/adminsidebar/adminsidebar"; // Correct the import path
 import AdminHeader from "@/components/adminheader/adminheader"; // Correct the import path
 import RoleConfiguration from "@/components/configuration/roleconfiguration";
-import UpdatePrefix from "@/components/prefix/updateprefix";
-import PrefixPreview from "@/components/prefix/prefixpreview";
+import ViewPrefix from "@/components/prefix/viewprefix";
+
 const inter = Inter({ subsets: ['latin'] });
 
 
@@ -29,17 +29,11 @@ export default function page() {
        
        <RoleConfiguration />
        
-        <div className="flex flex-col lg:flex-row gap-4 p-6">
-            
-          <div className="flex-1 min-w-[20rem]">
-          <UpdatePrefix />
+        <div className="flex flex-col lg:flex-row gap-4 p-6 ">
+          <div className="flex-1 min-w-[50rem]">
+          <ViewPrefix />
          </div>
-       <div className="flex-1 min-w-[40rem] pt-24">
-            <PrefixPreview />
-       </div>
-        <div className="flex-1 min-w-0">
-        
-        </div>
+       
        </div>
        
       </main>

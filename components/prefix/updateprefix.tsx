@@ -61,19 +61,19 @@ const UpdatePrefix = () => {
 
      <div className="flex items-center mb-6 sm:mt-4">
           <Link href="/createprefix">
-            <span className="text-sm sm:text-base text-gray-400">Edit</span>
+            <span className="text-sm sm:text-base text-gray-400">Create</span>
           </Link>
           <span className="mx-1 sm:mx-2 text-gray-400">{'>'}</span>
-          <Link href="/editprefix">
+          <Link href="/viewprefix">
             <span className="text-sm sm:text-base text-gray-400">View</span>
           </Link>
           <span className="mx-1 sm:mx-2 text-gray-400">{'>'}</span>
           <span className="text-2xl sm:text-base text-blue-500 font-medium whitespace-nowrap">
-             Create Prefixes
+             Update Prefixes
           </span>
         </div>
     <div className="max-w-md mx-auto mt-10 p-6 bg-white border rounded-lg shadow-lg">
-      <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+      <h1 className="text-1g font-bold text-gray-800 mb-6 text-center">
         Update Prefix
       </h1>
 

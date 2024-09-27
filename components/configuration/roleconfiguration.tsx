@@ -30,7 +30,7 @@ function roleconfiguration() {
   const tabs = [
     { name: 'Roles', link: '/createroles' },
     { name: 'Abilities', link: '/createability' },
-    { name: 'Prefix', link: '/createroles' },
+    { name: 'Prefix', link: '/createprefix' },
     { name: 'Middlewares', link: '/createroles' },
     { name: 'SubMiddlewares', link: '/createroles' },
     { name: 'Controller', link: '/createroles' },

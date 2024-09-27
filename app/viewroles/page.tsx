@@ -29,8 +29,9 @@ export default function page() {
        <RoleConfiguration />
        
         <div className="flex flex-col lg:flex-row gap-4 pt-2">
-            <ViewRoles />
-          <div className="flex-1 min-w-0">
+            
+          <div className="flex-1 min-w-[50rem]">
+          <ViewRoles />
          </div>
        <div className="flex-1 min-w-0">
         
