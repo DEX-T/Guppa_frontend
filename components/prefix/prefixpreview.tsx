@@ -81,7 +81,7 @@ function ViewPrefix() {
       
 
       {/* Responsive Table */}
-<div className="overflow-x-auto px-4 py-6 sm:px-6 lg:px-8 -mt-10 rounded-lg ml-auto">
+<div className="overflow-x-auto px-4 py-14 sm:px-6 lg:px-8 -mt-10 rounded-lg ml-auto">
   {/* Visible on larger screens */}
   <table className="min-w-full bg-white rounded-xl hidden md:table shadow-lg">
     <thead>

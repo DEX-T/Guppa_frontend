@@ -5,13 +5,13 @@ import Link from "next/link";
 
 // Sample prefixes data
 const prefixes = [
-  { id: 1, prefix: "PRE1", status: "Active" },
-  { id: 2, prefix: "PRE2", status: "Deactivated" },
-  { id: 3, prefix: "PRE3", status: "Active" },
-  { id: 4, prefix: "PRE4", status: "Deactivated" },
-  { id: 5, prefix: "PRE5", status: "Active" },
-  { id: 6, prefix: "PRE6", status: "Deactivated" },
-  { id: 7, prefix: "PRE7", status: "Active" },
+    { id: 1, prefix: "PRE1", status: "Active", date: "2023-09-01" },
+    { id: 2, prefix: "PRE2", status: "Deactivated", date: "2023-09-02" },
+    { id: 3, prefix: "PRE3", status: "Active", date: "2023-09-03" },
+    { id: 4, prefix: "PRE4", status: "Deactivated", date: "2023-09-04" },
+    { id: 5, prefix: "PRE5", status: "Active", date: "2023-09-05" },
+    { id: 6, prefix: "PRE6", status: "Deactivated", date: "2023-09-06" },
+    { id: 7, prefix: "PRE7", status: "Active", date: "2023-09-07" },
 ];
 
 function ViewPrefix() {
@@ -89,7 +89,7 @@ function ViewPrefix() {
             <span className="text-sm sm:text-base text-gray-400">Create</span>
           </Link>
           <span className="mx-1 sm:mx-2 text-gray-400">{'>'}</span>
-          <Link href="/editprefix">
+          <Link href="/updateprefix">
             <span className="text-sm sm:text-base text-gray-400">Edit</span>
           </Link>
           <span className="mx-1 sm:mx-2 text-gray-400">{'>'}</span>
@@ -119,97 +119,105 @@ function ViewPrefix() {
       {/* Responsive Table */}
       <div className="overflow-x-auto px-4 py-6 sm:px-6 lg:px-8 -mt-10">
         {/* Visible on larger screens */}
-        <table className="min-w-full bg-white border rounded-lg hidden md:table">
-          <thead>
-            <tr className="text-left text-gray-600">
-              <th className="p-4">ID</th>
-              <th className="p-4">Prefix</th>
-              <th className="p-4">Status</th>
-              <th className="p-4">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {currentPrefixes.length > 0 ? (
-              currentPrefixes.map((prefix) => (
-                <tr
-                  key={prefix.id}
-                  className="border-t hover:bg-gray-50 transition duration-200"
-                >
-                  <td className="p-4">{prefix.id}</td>
-                  <td className="p-4">{prefix.prefix}</td>
-                  <td className="p-4">
-                    <span
-                      className={`px-3 py-1 rounded-full text-sm ${
-                        prefix.status === "Active"
-                          ? "bg-green-100 text-green-600"
-                          : "bg-red-100 text-red-600"
-                      }`}
-                    >
-                      {prefix.status}
-                    </span>
-                  </td>
-                  <td className="p-4">
-                    <button
-                      className="text-red-600 hover:text-red-800"
-                      onClick={() => handleDelete(prefix.id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan={4} className="p-4 text-center text-gray-500">
-                  No prefixes found
-                </td>
-              </tr>
-            )}
-          </tbody>
-        </table>
+        
+<table className="min-w-full bg-white border rounded-lg hidden md:table">
+  <thead>
+    <tr className="text-left text-gray-600">
+      <th className="p-4">ID</th>
+      <th className="p-4">Prefix</th>
+      <th className="p-4">Status</th>
+      <th className="p-4">Date</th> 
+      <th className="p-4">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {currentPrefixes.length > 0 ? (
+      currentPrefixes.map((prefix) => (
+        <tr
+          key={prefix.id}
+          className="border-t hover:bg-gray-50 transition duration-200"
+        >
+          <td className="p-4">{prefix.id}</td>
+          <td className="p-4">{prefix.prefix}</td>
+          <td className="p-4">
+            <span
+              className={`px-3 py-1 rounded-full text-sm ${
+                prefix.status === "Active"
+                  ? "bg-green-100 text-green-600"
+                  : "bg-red-100 text-red-600"
+              }`}
+            >
+              {prefix.status}
+            </span>
+          </td>
+          <td className="p-4">{prefix.date}</td> {/* Display Date */}
+          <td className="p-4">
+            <button
+              className="text-red-600 hover:text-red-800"
+              onClick={() => handleDelete(prefix.id)}
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      ))
+    ) : (
+      <tr>
+        <td colSpan={5} className="p-4 text-center text-gray-500">
+          No prefixes found
+        </td>
+      </tr>
+    )}
+  </tbody>
+</table>
+
 
         {/* Mobile Responsive View */}
-        <div className="md:hidden space-y-4">
-          {currentPrefixes.length > 0 ? (
-            currentPrefixes.map((prefix) => (
-              <div
-                key={prefix.id}
-                className="bg-white border rounded-lg p-4 space-y-2"
-              >
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold">ID:</span>
-                  <span>{prefix.id}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold">Prefix:</span>
-                  <span>{prefix.prefix}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="font-semibold">Status:</span>
-                  <span
-                    className={`px-3 py-1 rounded-full text-sm ${
-                      prefix.status === "Active"
-                        ? "bg-green-100 text-green-600"
-                        : "bg-red-100 text-red-600"
-                    }`}
-                  >
-                    {prefix.status}
-                  </span>
-                </div>
-                <div className="flex justify-end">
-                  <button
-                    className="text-red-600 hover:text-red-800"
-                    onClick={() => handleDelete(prefix.id)}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-500">No prefixes found</p>
-          )}
+<div className="md:hidden space-y-4">
+  {currentPrefixes.length > 0 ? (
+    currentPrefixes.map((prefix) => (
+      <div
+        key={prefix.id}
+        className="bg-white border rounded-lg p-4 space-y-2"
+      >
+        <div className="flex justify-between items-center">
+          <span className="font-semibold">ID:</span>
+          <span>{prefix.id}</span>
         </div>
+        <div className="flex justify-between items-center">
+          <span className="font-semibold">Prefix:</span>
+          <span>{prefix.prefix}</span>
+        </div>
+        <div className="flex justify-between items-center">
+          <span className="font-semibold">Status:</span>
+          <span
+            className={`px-3 py-1 rounded-full text-sm ${
+              prefix.status === "Active"
+                ? "bg-green-100 text-green-600"
+                : "bg-red-100 text-red-600"
+            }`}
+          >
+            {prefix.status}
+          </span>
+        </div>
+        <div className="flex justify-between items-center">
+          <span className="font-semibold">Date:</span> {/* Add Date field */}
+          <span>{prefix.date}</span> {/* Display Date */}
+        </div>
+        <div className="flex justify-end">
+          <button
+            className="text-red-600 hover:text-red-800"
+            onClick={() => handleDelete(prefix.id)}
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    ))
+  ) : (
+    <p className="text-center text-gray-500">No prefixes found</p>
+  )}
+</div>
 
         {/* Pagination */}
         <div className="flex justify-between items-center mt-6">

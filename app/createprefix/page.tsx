@@ -33,7 +33,7 @@ export default function page() {
           <div className="flex-1 min-w-[20rem]">
         <CreatePrefix />
          </div>
-       <div className="flex-1 min-w-[40rem] pt-14">
+       <div className="flex-1 min-w-[40rem] pt-24">
        <Prefixpreview />
        </div>
         <div className="flex-1 min-w-0">
